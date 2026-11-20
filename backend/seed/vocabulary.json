@@ -1,0 +1,30 @@
+{
+  "_readme": "Starter vocabulary. Every entry is UNVERIFIED and must be checked by fluent speakers before real use. Add or fix words here, or through the Contribute form. Format: entries -> dialect id -> English meaning -> word in Latin letters.",
+  "concepts": {
+    "hello": "नमस्ते", "thanks": "धन्यवाद", "water": "पानी", "fire": "आग", "sun": "सूरज", "moon": "चाँद",
+    "sky": "आसमान", "river": "नदी", "mountain": "पहाड़", "rain": "बारिश", "house": "घर", "mother": "माँ",
+    "father": "पिता", "village": "गाँव", "land": "ज़मीन", "person": "इंसान", "flower": "फूल", "country": "देश"
+  },
+  "entries": {
+    "santali": {"hello": "johar", "water": "dak", "fire": "sengel", "village": "ato", "country": "disom", "person": "hor", "flower": "baha", "sky": "sirma"},
+    "mundari": {"water": "daa", "fire": "sengel", "person": "horo"},
+    "ho": {"hello": "juar", "water": "daa", "fire": "sengel", "person": "horo", "land": "ote"},
+    "kurukh": {},
+    "gondi": {"hello": "jai seva"},
+    "bhili": {"hello": "ram ram"},
+    "khasi": {"hello": "khublei", "water": "um", "fire": "ding", "sun": "sngi", "sky": "bneng", "river": "wah", "mother": "mei", "father": "kpa", "village": "shnong", "land": "khyndew"},
+    "garo": {"water": "chi", "house": "nok", "person": "mande", "mother": "ama", "father": "aba"},
+    "mizo": {"hello": "chibai", "thanks": "ka lawm e", "water": "tui", "fire": "mei", "sun": "ni", "moon": "thla", "river": "lui", "mountain": "tlang", "rain": "ruah", "house": "in", "mother": "nu", "father": "pa"},
+    "bodo": {"water": "doi", "mother": "aai", "father": "apha", "land": "haa"},
+    "kokborok": {"hello": "khulumkha", "water": "twi", "sun": "sal", "house": "nok", "mountain": "hachuk"},
+    "adi": {"sun": "donyi", "moon": "polo"},
+    "ao": {},
+    "lepcha": {},
+    "jaunsari": {},
+    "kui": {},
+    "koya": {},
+    "sora": {},
+    "angami": {},
+    "nyishi": {}
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {"id": "santali", "name": "Santali", "family": "Austroasiatic", "regions": ["Jharkhand", "Odisha", "West Bengal", "Bihar", "Assam"], "script": "Ol Chiki", "note": "Has its own Ol Chiki script, created in 1925, and is a scheduled language of India."},
+  {"id": "mundari", "name": "Mundari", "family": "Austroasiatic", "regions": ["Jharkhand", "Odisha", "West Bengal"], "script": "Devanagari, Latin, Mundari Bani", "note": "A Munda language of the Chotanagpur plateau."},
+  {"id": "ho", "name": "Ho", "family": "Austroasiatic", "regions": ["Jharkhand", "Odisha"], "script": "Warang Citi", "note": "Written in the Warang Citi script devised by Lako Bodra."},
+  {"id": "kurukh", "name": "Kurukh (Oraon)", "family": "Dravidian", "regions": ["Jharkhand", "Chhattisgarh", "Odisha", "West Bengal"], "script": "Tolong Siki, Devanagari", "note": "A North Dravidian language, spoken far from the other Dravidian languages."},
+  {"id": "gondi", "name": "Gondi", "family": "Dravidian", "regions": ["Madhya Pradesh", "Chhattisgarh", "Maharashtra", "Telangana", "Odisha"], "script": "Gunjala Gondi, Masaram Gondi, Devanagari", "note": "Has its own scripts, including Gunjala Gondi lipi and Masaram Gondi."},
+  {"id": "bhili", "name": "Bhili", "family": "Indo-Aryan", "regions": ["Rajasthan", "Gujarat", "Madhya Pradesh", "Maharashtra"], "script": "Devanagari", "note": "The language of the Bhil communities, among the largest tribal groups in India."},
+  {"id": "khasi", "name": "Khasi", "family": "Austroasiatic", "regions": ["Meghalaya"], "script": "Latin", "note": "An Austroasiatic language in a north-east region where most languages are Tibeto-Burman."},
+  {"id": "garo", "name": "Garo (A\u00b7chik)", "family": "Tibeto-Burman", "regions": ["Meghalaya", "Assam"], "script": "Latin", "note": "Spoken by the A\u00b7chik people of the Garo Hills."},
+  {"id": "mizo", "name": "Mizo", "family": "Tibeto-Burman", "regions": ["Mizoram"], "script": "Latin", "note": "The most widely used language of Mizoram."},
+  {"id": "bodo", "name": "Bodo (Boro)", "family": "Tibeto-Burman", "regions": ["Assam"], "script": "Devanagari", "note": "A scheduled language of India, spoken mainly in Assam."},
+  {"id": "kokborok", "name": "Kokborok", "family": "Tibeto-Burman", "regions": ["Tripura"], "script": "Bengali script, Latin", "note": "The main language of the Tripuri people and an official language of Tripura."},
+  {"id": "adi", "name": "Adi", "family": "Tibeto-Burman", "regions": ["Arunachal Pradesh"], "script": "Latin", "note": "A Tani language. The Donyi-Polo faith honours the sun (Donyi) and the moon (Polo)."},
+  {"id": "ao", "name": "Ao Naga", "family": "Tibeto-Burman", "regions": ["Nagaland"], "script": "Latin", "note": "One of the main languages of Nagaland, with Chungli and Mongsen varieties."},
+  {"id": "lepcha", "name": "Lepcha (Rong)", "family": "Tibeto-Burman", "regions": ["Sikkim", "West Bengal"], "script": "Lepcha (Rong) script", "note": "Speakers call themselves and their language Rong."},
+  {"id": "jaunsari", "name": "Jaunsari", "family": "Indo-Aryan", "regions": ["Uttarakhand"], "script": "Devanagari", "note": "A Western Pahari language of Jaunsar-Bawar in Dehradun district."},
+  {"id": "kui", "name": "Kui (Khond)", "family": "Dravidian", "regions": ["Odisha", "Andhra Pradesh"], "script": "Odia, Kui script", "note": "The language of the Kondh community, mostly written in the Odia script."},
+  {"id": "koya", "name": "Koya", "family": "Dravidian", "regions": ["Telangana", "Chhattisgarh", "Odisha", "Andhra Pradesh"], "script": "Telugu, Devanagari", "note": "A Gondi-related Dravidian language spoken along the Godavari river valley."},
+  {"id": "sora", "name": "Sora (Savara)", "family": "Austroasiatic", "regions": ["Odisha", "Andhra Pradesh"], "script": "Sorang Sompeng, Odia, Latin", "note": "A Munda language with its own Sorang Sompeng script."},
+  {"id": "angami", "name": "Angami Naga", "family": "Tibeto-Burman", "regions": ["Nagaland", "Manipur"], "script": "Latin", "note": "Spoken by the Angami people around Kohima; the Tenyidie variety is widely used."},
+  {"id": "nyishi", "name": "Nyishi", "family": "Tibeto-Burman", "regions": ["Arunachal Pradesh"], "script": "Latin", "note": "A Tani language and one of the most widely spoken languages of Arunachal Pradesh."}
+]

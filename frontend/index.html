@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vocal Roots: convert and learn tribal dialects</title>
+  <meta name="description" content="Translate between English, Hindi and tribal dialects, hear the words, and practise with spaced repetition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="logo" href="#top" aria-label="Vocal Roots home">
+      <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M2 11c3-6 6 6 9 0s6 6 9 0 6 6 10 0"/><path d="M16 15v13M16 20l-6 6M16 22l6 5"/>
+      </svg>
+      <span>Vocal Roots</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#translate">Translate</a>
+      <a href="#detect">Detect</a>
+      <a href="#learn">Learn</a>
+      <a href="#contribute">Contribute</a>
+    </nav>
+    <div class="nav-user">
+      <span class="pill" id="userStats" hidden></span>
+      <button class="btn btn-ghost" id="authBtn" type="button">Log in</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <canvas id="waves" aria-hidden="true"></canvas>
+      <div class="hero-copy">
+        <h1>Every dialect is a root. Give it a voice.</h1>
+        <p>Translate between English, Hindi and tribal dialects, hear how each word sounds, and practise with a review plan that adapts to what you forget.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#translate">Translate a phrase</a>
+          <a class="btn btn-ghost-dark" href="#learn">Start learning</a>
+        </div>
+      </div>
+      <dl class="hero-stats">
+        <div><dt>words</dt><dd id="stWords">0</dd></div>
+        <div><dt>dialects</dt><dd id="stDialects">0</dd></div>
+        <div><dt>community verified</dt><dd id="stVerified">0</dd></div>
+      </dl>
+    </section>
+
+    <section class="section" id="translate">
+      <div class="section-head">
+        <h2>Convert a phrase</h2>
+        <p>Type or speak a phrase. Words are matched one by one, so short phrases work best.</p>
+      </div>
+      <div class="glass translator">
+        <div class="pane">
+          <label for="fromLang">From</label>
+          <select id="fromLang"></select>
+          <textarea id="srcText" rows="4" maxlength="500" placeholder="Try: water river mother"></textarea>
+          <div class="row">
+            <button class="mic" id="micBtn" type="button" aria-label="Speak your phrase" title="Speak your phrase">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+            </button>
+            <button class="btn btn-primary" id="goBtn" type="button">Translate</button>
+          </div>
+        </div>
+        <button class="swap" id="swapBtn" type="button" aria-label="Swap languages">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></svg>
+        </button>
+        <div class="pane">
+          <label for="toLang">To</label>
+          <select id="toLang"></select>
+          <div class="output" id="tOut" aria-live="polite"><span class="muted">Your translation appears here.</span></div>
+          <div class="row">
+            <span class="muted" id="tMeta"></span>
+            <button class="btn btn-ghost" id="copyBtn" type="button" hidden>Copy</button>
+          </div>
+        </div>
+      </div>
+      <p class="note" id="demoNote" hidden>This is demo vocabulary. The dialect words are placeholders until community-verified entries are loaded.</p>
+    </section>
+
+    <section class="section" id="detect">
+      <div class="section-head">
+        <h2>Which dialect is this?</h2>
+        <p>A character n-gram model trained on the dictionary estimates the dialect of a word or short phrase.</p>
+      </div>
+      <div class="glass detector">
+        <div class="row stretch">
+          <input id="detectText" type="text" maxlength="200" placeholder="Paste a word or phrase in a dialect" aria-label="Text to analyse">
+          <button class="btn btn-primary" id="detectBtn" type="button">Detect dialect</button>
+        </div>
+        <div id="detectOut" class="bars" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section" id="learn">
+      <div class="section-head">
+        <h2>Practise what you're about to forget</h2>
+        <p>Cards come back on a spaced-repetition schedule. Log in to save progress and get an AI review plan.</p>
+      </div>
+      <div class="glass learn">
+        <div class="tabs" role="tablist" aria-label="Practice modes">
+          <button role="tab" aria-selected="true" data-tab="cards" type="button">Flashcards</button>
+          <button role="tab" aria-selected="false" data-tab="quiz" type="button">Quiz</button>
+          <button role="tab" aria-selected="false" data-tab="plan" type="button">My review plan</button>
+          <select id="learnDialect" aria-label="Dialect to practise"></select>
+        </div>
+
+        <div class="tabpanel" id="tab-cards">
+          <div class="flash" id="flash" tabindex="0" aria-label="Flashcard. Press space to flip">
+            <div class="flash-inner" id="flashInner">
+              <div class="face front">
+                <span class="muted" id="fDialect"></span>
+                <strong class="big" id="fWord"></strong>
+                <span class="native" id="fNative"></span>
+                <button class="btn btn-ghost" id="fPlay" type="button">Hear it</button>
+                <span class="hint">Tap the card to see the meaning</span>
+              </div>
+              <div class="face back">
+                <strong class="big" id="fConcept"></strong>
+                <span class="native" id="fHindi"></span>
+              </div>
+            </div>
+          </div>
+          <div class="rate" id="rate" hidden>
+            <button class="btn btn-ghost" data-q="1" type="button">Forgot</button>
+            <button class="btn btn-ghost" data-q="3" type="button">Hard</button>
+            <button class="btn btn-ghost" data-q="4" type="button">Good</button>
+            <button class="btn btn-primary" data-q="5" type="button">Easy</button>
+          </div>
+          <p class="muted center" id="deckInfo"></p>
+        </div>
+
+        <div class="tabpanel" id="tab-quiz" hidden>
+          <div id="quizBox"></div>
+        </div>
+
+        <div class="tabpanel" id="tab-plan" hidden>
+          <div id="planBox"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contribute">
+      <div class="section-head">
+        <h2>Add a word to the dictionary</h2>
+        <p>New words stay unverified until a community reviewer approves them. Only record voices you have permission to share.</p>
+      </div>
+      <form class="glass contribute" id="wordForm" autocomplete="off">
+        <label>Dialect name<input name="dialect" list="dialectList" required maxlength="50"><datalist id="dialectList"></datalist></label>
+        <label>Meaning in English<input name="concept" required maxlength="40"></label>
+        <label>Hindi<input name="hindi" required maxlength="40"></label>
+        <label>Word in the dialect (Latin letters)<input name="roman" required maxlength="40"></label>
+        <label>Native script (optional)<input name="native" maxlength="40"></label>
+        <label>Category
+          <select name="category">
+            <option>nature</option><option>family</option><option>animals</option>
+            <option>daily life</option><option>culture</option><option>greetings</option><option>general</option>
+          </select>
+        </label>
+        <div class="recorder">
+          <button class="mic" id="recBtn" type="button" aria-label="Record pronunciation" title="Record pronunciation">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+          </button>
+          <span class="muted" id="recInfo">Record the pronunciation (up to 6 seconds)</span>
+          <audio id="recPreview" controls hidden></audio>
+        </div>
+        <button class="btn btn-primary" type="submit">Save word</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Vocal Roots is meant to be built with dialect speakers. Words and recordings belong to the communities who share them, so ask for consent before you upload anyone's voice.</p>
+  </footer>
+
+  <dialog id="authDialog" class="glass dialog">
+    <form method="dialog" id="authForm">
+      <h3 id="authTitle">Log in</h3>
+      <label id="nameRow" hidden>Name<input name="name" maxlength="60" autocomplete="name"></label>
+      <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      <label>Password<input name="password" type="password" required minlength="8" autocomplete="current-password"></label>
+      <p class="error" id="authError" role="alert"></p>
+      <div class="row">
+        <button class="btn btn-primary" type="submit">Continue</button>
+        <button class="btn btn-ghost" id="authSwitch" type="button">Create an account</button>
+        <button class="btn btn-ghost" id="authClose" type="button">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="js/waves.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
