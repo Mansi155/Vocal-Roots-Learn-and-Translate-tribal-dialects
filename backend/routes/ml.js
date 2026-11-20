@@ -10,6 +10,7 @@ router.post('/detect', async (req, res) => {
     const { data } = await axios.post(`${ML()}/detect`, { text: String(req.body.text || '').slice(0, 300) }, { timeout: 4000 });
     res.json(data);
   } catch (e) {
+    console.error("ML_ERROR:",e.message,e.code);
     if (e.response) return res.status(e.response.status).json({ error: e.response.data.detail || 'Detection failed' });
     down(res);
   }
