@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const API = window.API_BASE || '';
+  const API = window.API_BASE ||'https://vocal-roots-learn-and-translate-tribal-dialects-production.up.railway.app';
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
